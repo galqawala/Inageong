@@ -7,11 +7,11 @@ public class tiles : MonoBehaviour
 {
     public Tilemap tilemap;
     public Tile[] tilesToPlace;
+    public int radius = 6;
 
     // Start is called before the first frame update
     void Start()
     {
-        int radius = 100;
         float scale = 1f/10f;
         for (int x = -radius; x <= radius; x++)
         {
