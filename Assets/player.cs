@@ -15,9 +15,8 @@ public class player : MonoBehaviour
     {
         //turn
         var turn = Input.GetAxis("Mouse X");
-        Vector3 aroundPoint = new Vector3(0,0,0);
         Vector3 axis = new Vector3(0,0,1);
-        grid.transform.RotateAround(aroundPoint,axis,turn);
+        grid.transform.RotateAround(Vector3.zero, axis, turn);
         //move
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
