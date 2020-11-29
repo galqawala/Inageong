@@ -110,15 +110,21 @@ public class tiles : MonoBehaviour
 
     Tile getTileFor(int x, int y)
     {
-        //think of the tile actually being in the intersection of 4 coordinates
-        //top-right corner should have material from x+1,y
-        //bottom-right corner should have material from x+1,y+1
-        //bottom-left corner should have material from x,y+1
-        //top-left corner should have material from x,y
+        // think of the tile actually being in the intersection of 4 coordinates
+        return tileByCornerMats(
+          getMaterialFor(x+1,y  ) // ⌝ corner
+        , getMaterialFor(x+1,y+1) // ⌟ corner
+        , getMaterialFor(x  ,y+1) // ⌞ corner
+        , getMaterialFor(x  ,y  ) // ⌜ corner
+        );
+    }
+
+    Material getMaterialFor(int x, int y)
+    {
         if (isWater(x,y)) {
-            return tileByCornerMats(Material.Water, Material.Water, Material.Water, Material.Water);
+            return Material.Water;
         } else {
-            return tileByCornerMats(Material.Grass, Material.Grass, Material.Grass, Material.Grass);
+            return Material.Grass;
         }
     }
 
